@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://ce8nj0ej3mq77" path="res://art/enemyFlyingAlt_2.png" id="2_s3p2s"]
 [ext_resource type="Texture2D" uid="uid://csp6qad81dadp" path="res://art/enemySwimming_1.png" id="3_qsukh"]
 [ext_resource type="Texture2D" uid="uid://b3gepsm2wihmc" path="res://art/enemySwimming_2.png" id="4_hfspd"]
-[ext_resource type="Texture2D" uid="uid://doals8rx4sci" path="res://art/playerGrey_walk1.png" id="5_aul05"]
-[ext_resource type="Texture2D" uid="uid://cly4s0rakp48c" path="res://art/playerGrey_up2.png" id="6_c2kub"]
+[ext_resource type="Texture2D" uid="uid://ba06r1dcrwj61" path="res://art/enemyWalking_1.png" id="6_aglaq"]
+[ext_resource type="Texture2D" uid="uid://twuombdx8i6c" path="res://art/enemyWalking_2.png" id="7_x20vu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7bd6r"]
 radius = 49.931
@@ -38,10 +38,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_aul05")
+"texture": ExtResource("6_aglaq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_c2kub")
+"texture": ExtResource("7_x20vu")
 }],
 "loop": true,
 "name": &"walk",
@@ -59,9 +59,10 @@ shape = SubResource("CapsuleShape2D_7bd6r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1t4j2")
-animation = &"fly"
+animation = &"walk"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 scale = Vector2(13.5, 12.35)
 
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

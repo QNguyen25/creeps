@@ -5,7 +5,7 @@ var score
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	new_game() # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -34,6 +34,7 @@ func _on_start_timer_timeout():
 
 
 func _on_enemy_timer_timeout():
+	print("spawn")
 	var enemy = enemy_scene.instantiate()
 	
 	var enemy_spawn_location = $EnemyPath/EnemySpawnLocation
@@ -48,3 +49,4 @@ func _on_enemy_timer_timeout():
 	
 	var velocity = Vector2(randf_range(150.0, 250.0), 0.0)
 	enemy.linear_velocity = velocity.rotated(direction)
+	add_child(enemy)

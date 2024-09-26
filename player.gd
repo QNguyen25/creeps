@@ -5,7 +5,7 @@ var screen_size
 signal hit
 
 func _ready():
-	hide()
+	#hide()
 	screen_size = get_viewport_rect().size
 	
 	
@@ -51,3 +51,4 @@ func _on_body_entered(body):
 	hit.emit()
 	hide()
 	$CollisionShape2D.set_deferred("disabled", true)
+	print("I was hit")
