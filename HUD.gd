@@ -16,15 +16,16 @@ func show_game_over():
 	$Message.text = "Dodge the Creeps!"
 	$Message.show()
 	
-	await get_tree().create_timer(1,0).timeout
+	await get_tree().create_timer(1,0).timeout                                                                                                                                                  
 	$StartButton.show()
 	
 func update_score(score):
-	$ScoreLabel.text = str(score)
+	$ScoreLabel.text = "Score: "+ str(score)
 
 func _on_start_button_pressed():
-	pass # Replace with function body.
+	$StartButton.hide()
+	start_game.emit()
 
 
 func _on_message_timer_timeout():
-	pass # Replace with function body.
+	$Message.hide()
